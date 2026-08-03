@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@500;600&family=Montserrat:wght@400;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Primary - Dark Blue */
+  --color-primary-50: #e8eaef;
+  --color-primary-100: #dde0e6;
+  --color-primary-200: #b8becc;
+  --color-primary-500: #1b2d5b;
+  --color-primary-600: #182952;
+  --color-primary-700: #162449;
+  --color-primary-800: #142244;
+  --color-primary-900: #101b37;
+  --color-primary-950: #091020;
+
+  /* Secondary - Orange */
+  --color-secondary-50: #fef0e7;
+  --color-secondary-100: #fee9db;
+  --color-secondary-200: #fdd1b4;
+  --color-secondary-500: #f76c0c;
+  --color-secondary-600: #de610b;
+  --color-secondary-700: #c6560a;
+  --color-secondary-800: #b95109;
+  --color-secondary-900: #944107;
+  --color-secondary-950: #562604;
+
+  /* Light Blue */
+  --color-blue-light-50: #fbfcff;
+  --color-blue-light-100: #f9fbff;
+  --color-blue-light-200: #f3f6ff;
+  --color-blue-light-500: #d8e2ff;
+  --color-blue-light-600: #c2cbe6;
+  --color-blue-light-700: #adb5cc;
+  --color-blue-light-800: #a2aabf;
+  --color-blue-light-900: #828899;
+  --color-blue-light-950: #4c4f59;
+
+  /* White */
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-cairo: "Cairo", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Cairo", sans-serif;
+}
