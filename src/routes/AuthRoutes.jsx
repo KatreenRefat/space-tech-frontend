@@ -1,15 +1,14 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
+import Cover from '../Pages/auth/Login/Cover.jsx';
+import PhoneNumber from '../Pages/auth/Login/PhoneNumber.jsx';
+import OtpVerify from '../Pages/auth/Login/OtpVerify.jsx';
 
-import Login from "../pages/auth/Login/Login";
-import Register from "../pages/auth/Register/Register";
-
-function AuthRoutes() {
+export default function AuthRoutes() {
   return (
     <Routes>
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
+      <Route index element={<Cover />} />
+      <Route path="phone" element={<PhoneNumber />} />
+      <Route path="otp" element={<OtpVerify />} />
     </Routes>
   );
 }
-
-export default AuthRoutes;
