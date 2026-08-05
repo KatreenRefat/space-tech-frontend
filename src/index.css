@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@500;600&family=Montserrat:wght@400;700&display=swap");
-@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@500;600&family=Inter:wght@400;700&family=Montserrat:wght@400;700&display=swap");
+@import "tailwindcss";@import "tailwindcss";
 
 @theme {
   /* Primary - Dark Blue */
@@ -24,23 +24,23 @@
   --color-secondary-900: #944107;
   --color-secondary-950: #562604;
 
-  /* Light Blue */
-  --color-blue-light-50: #fbfcff;
-  --color-blue-light-100: #f9fbff;
-  --color-blue-light-200: #f3f6ff;
-  --color-blue-light-500: #d8e2ff;
-  --color-blue-light-600: #c2cbe6;
-  --color-blue-light-700: #adb5cc;
-  --color-blue-light-800: #a2aabf;
-  --color-blue-light-900: #828899;
-  --color-blue-light-950: #4c4f59;
-
+/* Light Blue */
+--color-blue-light-50: #fbfcff;
+--color-blue-light-100: #f9fbff;
+--color-blue-light-200: #e1e9fc;
+--color-blue-light-500: #d8e2ff;
+--color-blue-light-600: #c2cbe6;
+--color-blue-light-700: #adb5cc;
+--color-blue-light-800: #a2aabf;
+--color-blue-light-900: #828899;
+--color-blue-light-950: #4c4f59;
   /* White */
   --color-white: #ffffff;
 
   /* Typography */
   --font-cairo: "Cairo", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
+  --font-inter: "Inter", sans-serif;
 }
 
 /* Global Styles */
@@ -49,4 +49,4 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: "Cairo", sans-serif;
-}
+}  
