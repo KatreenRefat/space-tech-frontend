@@ -1,0 +1,351 @@
+/* ========== BASE ========== */
+.auth-page {
+  min-height: 100vh;
+  background-color: #e8f0fe;
+  position: relative;
+  overflow: hidden;
+  font-family: "Cairo", sans-serif;
+  direction: rtl;
+}
+
+/* Large decorative background blobs */
+.auth-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  background-color: #1b2a4a;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.auth-bg-blob.tr {
+  width: 500px;
+  height: 500px;
+  top: -180px;
+  right: -180px;
+}
+
+.auth-bg-blob.bl {
+  width: 400px;
+  height: 400px;
+  bottom: -150px;
+  left: -150px;
+}
+
+/* ========== COVER SCREEN ========== */
+.cover-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  cursor: pointer;
+  position: relative;
+}
+
+.cover-content {
+  position: relative;
+  width: 360px;
+  height: 360px;
+}
+
+.cover-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== FLOATING DECORATIONS ========== */
+.floating-icon {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cover-content .floating-icon.lightning {
+  width: 44px;
+  height: 44px;
+  top: 0;
+  right: 10px;
+}
+
+.cover-content .floating-icon.wrench {
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  left: -30px;
+  transform: rotate(-25deg);
+}
+
+.cover-content .floating-icon.screwdriver {
+  width: 44px;
+  height: 44px;
+  bottom: 90px;
+  right: -35px;
+  transform: rotate(35deg);
+}
+
+/* ========== SPLIT LAYOUT (Phone / OTP) ========== */
+.auth-split {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.auth-split-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 40px;
+}
+
+.auth-split-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.split-logo-wrapper {
+  position: relative;
+  width: 420px;
+  height: 420px;
+}
+
+.split-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+/* Decorative icons around split logo */
+.auth-split-left .floating-icon.lightning {
+  width: 50px;
+  height: 50px;
+  top: 30px;
+  right: 30px;
+}
+
+.auth-split-left .floating-icon.wrench {
+  width: 65px;
+  height: 65px;
+  bottom: 50px;
+  left: 0;
+  transform: rotate(-20deg);
+}
+
+.auth-split-left .floating-icon.screwdriver {
+  width: 50px;
+  height: 50px;
+  bottom: 120px;
+  right: 0;
+  transform: rotate(30deg);
+}
+
+/* ========== TOP BAR ========== */
+.auth-topbar {
+  position: absolute;
+  top: 28px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
+}
+
+.auth-topbar svg {
+  width: 36px;
+  height: 36px;
+}
+
+.auth-topbar span {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1b2a4a;
+}
+
+/* ========== FORM ========== */
+.auth-form-container {
+  max-width: 460px;
+  width: 100%;
+}
+
+.auth-greeting {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1b2a4a;
+  margin-bottom: 12px;
+}
+
+.greeting-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.auth-subtext {
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 18px 20px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  font-size: 17px;
+  font-family: "Cairo", sans-serif;
+  background: #ffffff;
+  outline: none;
+  transition: all 0.2s;
+  color: #1b2a4a;
+}
+
+.auth-input::placeholder {
+  color: #94a3b8;
+}
+
+.auth-input:focus {
+  border-color: #1b2a4a;
+  box-shadow: 0 0 0 3px rgba(27, 42, 74, 0.08);
+}
+
+.auth-button {
+  width: 100%;
+  padding: 18px;
+  background: #1b2a4a;
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: "Cairo", sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-button:hover {
+  background: #142244;
+}
+
+/* ========== OTP INPUTS ========== */
+.otp-inputs {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+.otp-inputs input {
+  width: 56px;
+  height: 64px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  outline: none;
+  transition: all 0.2s;
+  font-family: "Cairo", sans-serif;
+  color: #1b2a4a;
+  background: #ffffff;
+}
+
+.otp-inputs input:focus {
+  border-color: #1b2a4a;
+  box-shadow: 0 0 0 3px rgba(27, 42, 74, 0.08);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .auth-split {
+    flex-direction: column;
+  }
+
+  .auth-split-left {
+    min-height: 32vh;
+    padding: 80px 20px 20px;
+  }
+
+  .auth-split-right {
+    padding: 30px 24px 60px;
+    align-items: center;
+  }
+
+  .split-logo-wrapper {
+    width: 260px;
+    height: 260px;
+  }
+
+  .auth-form-container {
+    max-width: 100%;
+  }
+
+  .auth-topbar {
+    left: 20px;
+    top: 16px;
+  }
+
+  .auth-topbar span {
+    font-size: 18px;
+  }
+
+  .auth-greeting {
+    font-size: 26px;
+  }
+
+  .otp-inputs {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .otp-inputs input {
+    width: 48px;
+    height: 56px;
+    font-size: 20px;
+  }
+
+  .auth-bg-blob.tr {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -100px;
+  }
+
+  .auth-bg-blob.bl {
+    width: 250px;
+    height: 250px;
+    bottom: -80px;
+    left: -80px;
+  }
+}
+.auth-error {
+  color: #dc2626;
+  font-size: 14px;
+  text-align: center;
+  font-family: "Cairo", sans-serif;
+}
+
+.auth-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
