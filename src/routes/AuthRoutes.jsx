@@ -4,6 +4,10 @@ import PhoneNumber from '../Pages/auth/Login/PhoneNumber.jsx';
 import OtpVerify from '../Pages/auth/Login/OtpVerify.jsx';
 
 export default function AuthRoutes() {
+import Login from "../Pages/auth/Login/Login";
+import Register from "../Pages/auth/Register/Register";
+
+function AuthRoutes() {
   return (
     <Routes>
       <Route index element={<Cover />} />
@@ -22,4 +26,4 @@ export default function AuthRoutes() {
       />
     </Routes>
   );
-}
+}}
