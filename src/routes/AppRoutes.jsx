@@ -12,7 +12,8 @@ import PendingApproval from "../Pages/PendingApproval"; // ADD THIS
 
 function AppRoutes() {
   return (
-    <BrowserRouter>
+    // BASE_URL is '/' in dev and '/space-tech-frontend/' in the Pages build.
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/auth/*" element={<AuthRoutes />} />
         <Route path="/customer/*" element={<CustomerRoutes />} />

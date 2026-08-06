@@ -1,4 +1,7 @@
-const API_BASE_URL = '/api/v1';  // Hardcoded to use Vite proxy
+// Dev resolves this through the Vite proxy in vite.config.js. Static hosts like
+// GitHub Pages have no proxy, so the build supplies an absolute URL instead
+// (see .env.production).
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1';
 
 async function apiClient(endpoint, options = {}) {
   const url = `${API_BASE_URL}${endpoint}`;
