@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/customer/Home/Home";
-import Diagnosis from "../pages/customer/Diagnosis/Diagnosis";
-import DiagnosisResult from "../pages/customer/DiagnosisResult/DiagnosisResult";
-import Technicians from "../pages/customer/Technicians/Technicians";
-import Booking from "../pages/customer/Booking/Booking";
-import Tracking from "../pages/customer/Tracking/Tracking";
+import Home from "../Pages/Customer/Home/Home";
+import Diagnosis from "../Pages/Customer/Diagnosis/Diagnosis";
+import DiagnosisResult from "../Pages/Customer/DiagnosisResult/DiagnosisResult";
+import Technicians from "../Pages/Customer/Technicians/Technicians";
+import Booking from "../Pages/Customer/Booking/Booking";
+import Tracking from "../Pages/Customer/Tracking/Tracking";
 
 function CustomerRoutes() {
   return (

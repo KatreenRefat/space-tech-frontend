@@ -9,7 +9,7 @@ import {
   HouseLogoSmall,
 } from './icons.jsx';
 import lightningSvg from '../../../assets/lightning.svg';
-import { authApi } from '../../../services/api.js';
+import { authApi } from '../../../Services/api.js';
 
 export default function OtpVerify() {
   const [otp, setOtp] = useState(new Array(6).fill(''));

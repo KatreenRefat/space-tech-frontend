@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "../pages/technician/Home/Home";
-import Jobs from "../pages/technician/Jobs/Jobs";
-import JobDetails from "../pages/technician/JobDetails/JobDetails";
-import ActiveJob from "../pages/technician/ActiveJob/ActiveJob";
-import Schedule from "../pages/technician/Schedule/Schedule";
+import Home from "../Pages/Technician/Home/Home";
+import Jobs from "../Pages/Technician/Jobs/Jobs";
+import JobDetails from "../Pages/Technician/JobDetails/JobDetails";
+import ActiveJob from "../Pages/Technician/ActiveJob/ActiveJob";
+import Schedule from "../Pages/Technician/Schedule/Schedule";
 
 function TechnicianRoutes() {
   return (

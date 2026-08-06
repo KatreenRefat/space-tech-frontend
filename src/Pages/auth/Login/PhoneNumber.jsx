@@ -9,7 +9,7 @@ import {
   HouseLogoSmall,
 } from './icons.jsx';
 import lightningSvg from '../../../assets/lightning.svg';
-import { authApi } from '../../../services/api.js';
+import { authApi } from '../../../Services/api.js';
 import { normalizePhone, isValidPhone } from '../../../utils/phone.js';
 
 export default function PhoneNumber() {
