@@ -1,16 +1,91 @@
-# React + Vite
+# صلحلي — Space Tech Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React + Vite front-end for صلحلي, a home-services marketplace that connects
+customers with technicians (plumbing, electrical, carpentry, …).
 
-Currently, two official plugins are available:
+Live: <https://sla7ly-org.github.io/space-tech-frontend/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Quick start
 
-## React Compiler
+```bash
+npm install
+npm run dev          # http://localhost:5173
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+No `.env` file is required — the app talks to the shared backend out of the box.
+Copy `.env.example` to `.env.local` only if you need to point at a different one.
 
-## Expanding the Oxlint configuration
+## Scripts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+| Script                 | What it does                                     |
+| ---------------------- | ------------------------------------------------ |
+| `npm run dev`          | Dev server with HMR and the API proxy            |
+| `npm run build`        | Production build into `dist/`                    |
+| `npm run preview`      | Serve the built `dist/` locally                  |
+| `npm run lint`         | Oxlint                                           |
+| `npm run lint:fix`     | Oxlint with autofix                              |
+| `npm run format`       | Rewrite files with Prettier                      |
+| `npm run format:check` | Fail if anything is unformatted (what CI runs)   |
+| `npm run check`        | format:check + lint + build — run before pushing |
+
+## Project structure
+
+```
+src/
+├── assets/          # static files — icons/ for small SVGs, images/ for artwork
+├── components/      # components shared by more than one page
+├── config/          # api.js (the backend URL) + env.js (per-environment values)
+├── constants/       # roles, routes, booking statuses, storage keys
+├── hooks/           # reusable stateful logic (useGeolocation, …)
+├── layouts/         # page shells rendered around a section's routes
+├── pages/           # one folder per section: auth/, customer/, technician/
+│   └── auth/
+│       ├── components/       # shared across the auth screens
+│       └── Register/         # a page big enough to need its own folder
+├── routes/          # route tables — AppRoutes composes the section routers
+├── services/        # the API layer, one module per backend area
+├── styles/          # global stylesheet and the Tailwind theme
+└── utils/           # pure helpers (phone formatting, localStorage access)
+```
+
+Conventions: folders are lowercase, component files are `PascalCase.jsx`, and
+everything else is `camelCase.js`. Imports use the `@/` alias for anything
+outside the current folder — `import { authService } from '@/services'`, never
+`../../../services`.
+
+## Talking to the backend
+
+**The backend URL is defined in exactly one place: `src/config/api.js`.** Both
+the runtime HTTP client and the Vite dev proxy read it from there, so the app
+and the proxy can never drift apart.
+
+- **Dev** — requests go to a relative `/api/v1/...`, and Vite proxies them to the
+  backend. Same-origin, so no CORS.
+- **Production** — a static host has no proxy, so the build inlines the absolute
+  origin. The backend must allow the site's origin via CORS.
+
+To use a different backend, set `VITE_API_ORIGIN` in `.env.local`; the proxy and
+the client both pick it up.
+
+Every request goes through `src/services/httpClient.js`, which attaches the auth
+header, refreshes an expired token once and retries, times requests out, and
+turns non-2xx responses into an `ApiError` carrying `status` and `details`. Add
+new calls as a method on a service module — never call `fetch` from a component.
+
+```js
+import { userService } from '@/services';
+
+const profile = await userService.getProfile();
+```
+
+## Deployment
+
+Every push to `main` triggers `.github/workflows/deploy.yml`, which builds and
+publishes `dist/` to GitHub Pages. Because Pages serves from a subpath, the
+build sets `base: '/space-tech-frontend/'` and writes a `404.html` copy of
+`index.html` so client-side routes survive a hard refresh.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for branch naming, commit format, code
+style and the PR checklist.

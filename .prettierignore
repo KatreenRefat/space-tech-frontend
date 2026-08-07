@@ -1,0 +1,16 @@
+# Build output
+dist
+build
+coverage
+
+# Dependencies
+node_modules
+
+# Generated / vendored
+package-lock.json
+*.min.js
+*.min.css
+
+# Designer exports — huge single-line SVGs, reformatting them only adds noise
+src/assets/**/*.svg
+public/*.svg
